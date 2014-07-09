@@ -15,5 +15,8 @@ body {
 }
 
 .image {
+	width: 96%;
+	height: 96%;
+	margin: 2%;
 	overflow: hidden;
 }
