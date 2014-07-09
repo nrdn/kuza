@@ -9,8 +9,13 @@ body {
 }
 
 .menu {
-	position: fixed;
+	width: 150px;
+	height: 60px;
+	margin: 20% -75px;
+	left: 48%;
+	position: absolute;
 	z-index: 999;
+	outline: 1px solid red;
 }
 
 .image {
