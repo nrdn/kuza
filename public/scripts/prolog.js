@@ -17,5 +17,5 @@ $(document).ready(function() {
 		return this;
 	}
 
-	$('body').mapNavigate();
+	$('.image').mapNavigate();
 });
