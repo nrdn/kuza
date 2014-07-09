@@ -122,7 +122,7 @@ var deleteFolderRecursive = function(path) {
 
 
 // ------------------------
-// *** Main Block ***
+// *** Index Block ***
 // ------------------------
 
 
@@ -130,6 +130,18 @@ var main = app.route('/');
 
 main.get(function(req, res) {
   res.render('main');
+});
+
+
+// ------------------------
+// *** Main Block ***
+// ------------------------
+
+
+var main = app.route('/main');
+
+main.get(function(req, res) {
+  res.render('main/main.jade');
 });
 
 

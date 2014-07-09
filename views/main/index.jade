@@ -1,14 +1,11 @@
-extends ../layout
-
-block title
-	title Главная!
-
-block content_style
-	link(rel='stylesheet', type='text/css', href='/styles/main.css' + version)
-
-block content_scripts
-	script(type='text/javascript', src='/scripts/main.js' + version)
-
-
-block content
-	h1 Главная!
+doctype html
+html
+	head
+		link(rel='stylesheet', type='text/css', href='/styles/prolog.css')
+		script(type='text/javascript', src='/scripts/jquery-1.11.1.min.js')
+		script(type='text/javascript', src='/scripts/prolog.js')
+		title Пролог
+	body
+		.menu
+			a(href='/main') главная
+		img(src='/images/design/backgrounds/sky.jpg')
