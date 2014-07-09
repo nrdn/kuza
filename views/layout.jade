@@ -1,0 +1,44 @@
+doctype html
+html
+	head
+		include header
+	body
+		- var date = new Date()
+		include counters
+		.main_block
+			.header_block
+				a.logo(href='/'): img(src='/images/design/logo.png')
+				//- .lang en
+				.menu_block
+					.menu_item Институт
+						.menu_drop
+							a(href='#') История
+							a(href='#') Структура
+							a(href='#') Награды
+							a(href='#') Партнеры
+							a(href='#') Вакансии
+					.menu_item Работы
+						.menu_drop
+							a(href='/works/since') Научные работы
+							a(href='/works/grad') Градостроительные работы
+							a(href='/works/events') Акции
+							a(href='/works/publications') Публикации
+							//- a(href='/works/work') Пример работы
+					.menu_item Обучение
+						.menu_drop
+							a(href='#') Учебный центр
+							a(href='#') Аспирантура
+							a(href='#') Повышение квалификации
+					.menu_item Экспертиза
+						.menu_drop
+							a(href='#') Эксперты
+							a(href='#') Регламент проведения негосударственной экспертизы
+							a(href='#') Органы управления
+					a.menu_item(href='#') Нормы
+					a.menu_item(href='#') Лицензии
+					a.menu_item(href='#') Контакты
+			.content_block
+				.content_title_block
+					block content_title
+				block content
+			.footer_block= 'ЦНИИП градостроительства РААСН © ' + date.getFullYear()

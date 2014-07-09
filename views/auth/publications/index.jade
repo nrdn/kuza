@@ -1,0 +1,24 @@
+extends ../../layout
+
+block title
+	title СПИСОК ПУБЛИКАЦИЙ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/lists.js')
+
+block content
+	a.back_link(href='/auth') < Назад
+	.title СПИСОК ПУБЛИКАЦИЙ
+	br
+	a.add(href='/auth/publications/' + author._id + '/add') добавить публикацию
+	br
+	br
+	.main_menu_block
+		each publication in author.publishes
+			.author
+				a.rm_author(href='#', id=author._id)= 'удалить '
+				!=' | '
+				a(href='/auth/publications/edit/' + publication._id)= publication.title.ru

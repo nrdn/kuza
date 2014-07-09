@@ -1,0 +1,26 @@
+extends ../../layout
+
+block title
+	title СПИСОК АВТОРОВ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/lists.js')
+
+block content
+	a.back_link(href='/auth') < Назад
+	.title СПИСОК АВТОРОВ
+	br
+	a.add(href='/auth/authors/add') добавить автора
+	br
+	br
+	.main_menu_block
+		each author in authors
+			.author
+				a.rm_author(href='#', id=author._id)= 'удалить '
+				!=' | '
+				a(href='/auth/publications/' + author._id) публикации
+				!=' | '
+				a(href='/auth/authors/edit/' + author._id)= author.name.ru

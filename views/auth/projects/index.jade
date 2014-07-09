@@ -1,0 +1,26 @@
+extends ../../layout
+
+block title
+	title СПИСОК ПРОЕКТОВ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/lists.js')
+
+block content
+	a.back_link(href='/auth') < Назад
+	.title СПИСОК ПРОЕКТОВ
+	br
+	a.add(href='/auth/projects/add') добавить проект
+	br
+	br
+	.main_menu_block
+		each project in projects
+			.project
+				a.rm_project(href='#', id=project._id)= 'удалить '
+				!=' | '
+				a(href='/auth/works/' + project._id) работы
+				!=' | '
+				a(href='/auth/projects/edit/' + project._id)= project.title.ru

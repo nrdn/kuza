@@ -1,0 +1,40 @@
+extends ../../layout
+
+block title
+	title ДОБАВИТЬ ПРОЕКТ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/add.js')
+
+block content_right
+	.navigator
+		.nav_title РАБОТА
+		.nav_project_children
+		br
+		b.nav_settings_title настройки
+		.toggle_eng перевод
+		br
+		b.form_submit ОТПРАВИТЬ
+
+block content
+	.form_block
+		a.back_link(href='/auth/projects') < Назад
+		.title ДОБАВИТЬ ПРОЕКТ
+		form(action="/auth/projects/add", method="post")
+			.form_title Название:
+			input.ru(type="text", name="ru[title]",)
+			input.en(type="text", name="en[title]", disabled)
+			.form_title Описание:
+			textarea.ru(name="ru[description]", rows="8",)
+			textarea.en(name="en[description]", rows="8", disabled)
+			.form_title Регион:
+			select(name='region')
+				option(value='') нет
+				option(value='altai') Алтайский край
+				option(value='belg') Белгородская область
+			br
+			br
+			input(type='submit', value='отправить')

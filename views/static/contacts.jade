@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title КОНТАКТЫ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/static.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='http://maps.googleapis.com/maps/api/js?key=AIzaSyBOpenpHs_KV-iN4XnFmaArzhj3D3NdVaY&sensor=false')
+	script(type='text/javascript', src='/scripts/g_maps.js' + version)
+	script(type='text/javascript', src='/scripts/static.js' + version)
+	//- script(type='text/javascript', src='/scripts/back.js' + version)
+
+
+block content
+	h1 Контакты

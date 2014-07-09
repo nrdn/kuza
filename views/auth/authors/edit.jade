@@ -1,0 +1,37 @@
+extends ../../layout
+
+block title
+	title РЕДАКТИРОВАТЬ АВТОРА
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/add.js')
+
+block content_right
+	.navigator
+		.nav_title АВТОР
+		.nav_project_children
+		br
+		b.nav_settings_title настройки
+		.toggle_eng перевод
+		br
+		b.form_submit ОТПРАВИТЬ
+
+block content
+	.form_block
+		a.back_link(href='/auth/authors') < Назад
+		.title РЕДАКТИРОВАТЬ АВТОРА
+		form(action="", method="post")
+			.form_title Имя:
+			input.ru(type="text", name="ru[name]", value=author.name.ru)
+			input.en(type="text", name="en[name]", disabled)
+			.form_title Описание:
+			textarea.ru(name="ru[description]", rows="8",)= author.description.ru
+			textarea.en(name="en[description]", rows="8", disabled)
+			.form_title Фото:
+			input(type="file", name="photo")
+			br
+			br
+			input(type='submit', value='отправить')

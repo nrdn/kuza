@@ -1,0 +1,27 @@
+extends ../layout
+
+block title
+	title ЗВЕЗДОЧЕТ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+	if (session.user_id == '521211e2b063c72302000003')
+		link(rel='stylesheet', type='text/css', href='/styles/lol/bamburov.css')
+
+block content_scripts
+	if (session.user_id == '521211e2b063c72302000003')
+		script(type='text/javascript', src='/scripts/lol/bamburov.js')
+
+block content
+	a.back_link(href='/logout') Выход
+	if (session.user_id == '521211e2b063c72302000003')
+		.lol_title
+	.title.star ЗВЕЗДОЧЕТ
+	.main_menu_block
+		br
+		b Авторы:
+		a(href='/auth/authors')= ' редактировать'
+		br
+		br
+		b Проекты:
+		a(href='/auth/projects')= ' редактировать'
