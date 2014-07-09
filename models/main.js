@@ -9,7 +9,7 @@ var userSchema = new Schema({
 		date: {type: Date, default: Date.now},
 });
 
-var authorSchema = new Schema({
+var memberSchema = new Schema({
 	name: {
 		ru: String,
 		en: String
@@ -18,11 +18,13 @@ var authorSchema = new Schema({
 		ru: String,
 		en: String
 	},
+	projects: [String],
+	category: String,
 	photo: String,
-	publishes: [{ type: Schema.Types.ObjectId, ref: 'Publish' }]
+	date: {type: Date, default: Date.now}
 });
 
-var publishSchema = new Schema({
+var lifeSchema = new Schema({
 	title: {
 		ru: String,
 		en: String
@@ -31,12 +33,11 @@ var publishSchema = new Schema({
 		ru: String,
 		en: String
 	},
-	source: {
-		name: String,
-		link: String
+	images: {
+		main: String,
+		second: [String],
 	},
-	sub_authors: [String],
-	files: [String]
+	date: {type: Date, default: Date.now}
 });
 
 var projectSchema = new Schema({
@@ -48,46 +49,19 @@ var projectSchema = new Schema({
 		ru: String,
 		en: String
 	},
-	region: String,
-	works: [{ type: Schema.Types.ObjectId, ref: 'Work' }]
-});
-
-var workSchema = new Schema({
-	title: {
-		ru: String,
-		en: String
+	images: {
+		main: String,
+		second: [String],
+		maps: [String]
 	},
-	description: {
-		ru: String,
-		en: String
-	},
+	tech: [String],
+	build: {type: Date, default: Date.now},
 	category: String,
-	image: String
-});
-
-var eventSchema = new Schema({
-	title: String,
-	description: String,
-	category: String
-});
-
-var pressSchema = new Schema({
-	author: String,
-	description: String,
-	link: String
-});
-
-var licenseSchema = new Schema({
-	title: String,
-	image: String
+	members: [{ type: Schema.Types.ObjectId, ref: 'Member' }],
+	date: {type: Date, default: Date.now},
 });
 
 
 module.exports.User = mongoose.model('User', userSchema);
-module.exports.Publish = mongoose.model('Publish', publishSchema);
-module.exports.Author = mongoose.model('Author', authorSchema);
+module.exports.Member = mongoose.model('Member', memberSchema);
 module.exports.Project = mongoose.model('Project', projectSchema);
-module.exports.Work = mongoose.model('Work', workSchema);
-module.exports.Event = mongoose.model('Event', eventSchema);
-module.exports.Press = mongoose.model('Press', pressSchema);
-module.exports.License = mongoose.model('License', licenseSchema);

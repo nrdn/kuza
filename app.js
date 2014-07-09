@@ -76,13 +76,8 @@ app.use(function(req, res, next) {
 
 
 var User = models.User;
-var Publish = models.Publish;
-var Author = models.Author;
-var Work = models.Work;
+var Member = models.Member;
 var Project = models.Project;
-var Event = models.Event;
-var Press = models.Press;
-var License = models.License;
 
 
 // ------------------------
