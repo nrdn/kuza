@@ -20,14 +20,23 @@ body {
 }
 
 .menu_items {
-	margin-top: 7px;
+	margin-top: 16px;
+}
+
+.separator {
+	margin-left: 10px;
+	float: left;
+	color: white;
+	font: 16pt/20pt 'helveticaneuecyrlight';
 }
 
 .menu_items a {
-	font-size: 24pt;
+	font: 16pt/20pt 'helveticaneuecyrlight';
 	color: white;
 	text-decoration: none;
 	margin-left: 10px;
+	display: block;
+	float: left;
 }
 
 .menu_items a:hover {

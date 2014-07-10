@@ -1,6 +1,7 @@
 doctype html
 html
 	head
+		link(rel='stylesheet', type='text/css', href='/styles/fonts.css')
 		link(rel='stylesheet', type='text/css', href='/styles/prolog.css')
 		script(type='text/javascript', src='/scripts/jquery-1.11.1.min.js')
 		script(type='text/javascript', src='/scripts/prolog.js')
@@ -10,8 +11,10 @@ html
 			img.logo(src='/images/design/logo.png')
 			img.logo_title(src='/images/design/logo_title.png')
 			.menu_items
-				a(href='/company') компания
-				a(href='/projects') проекты
+				a(href='/company') Компания
+				.separator |
+				a(href='/projects') Проекты
+				.separator |
 				a(href='/projects') А.В. Кузьмин
 		.image
 			img(src='/images/design/backgrounds/sky.jpg')
