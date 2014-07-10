@@ -6,16 +6,32 @@ html, body, .image {
 body {
 	padding: 0;
 	margin: 0;
+	overflow: hidden;
 }
 
-.menu {
-	width: 150px;
+.menu_block {
+	width: 800px;
 	height: 60px;
-	margin: 20% -75px;
+	margin: 20% -375px;
 	left: 48%;
 	position: absolute;
 	z-index: 999;
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
+}
+
+.menu_items {
+	margin-top: 7px;
+}
+
+.menu_items a {
+	font-size: 24pt;
+	color: white;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+.menu_items a:hover {
+	text-decoration: underline;
 }
 
 .image {
@@ -23,4 +39,17 @@ body {
 	height: 96%;
 	margin: 2%;
 	overflow: hidden;
+}
+
+.logo {
+	width: 120px;
+	display: block;
+	float: left;
+}
+
+.logo_title {
+	width: 200px;
+	margin-top: 20px;
+	display: block;
+	float: left;
 }

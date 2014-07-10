@@ -126,57 +126,28 @@ var deleteFolderRecursive = function(path) {
 // ------------------------
 
 
-var main = app.route('/');
-
-main.get(function(req, res) {
+app.route('/').get(function(req, res) {
   res.render('main');
 });
 
 
 // ------------------------
-// *** Main Block ***
+// *** Company Block ***
 // ------------------------
 
 
-var main = app.route('/main');
-
-main.get(function(req, res) {
-  res.render('main/main.jade');
+app.route('/company').get(function(req, res) {
+  res.render('company');
 });
 
 
 // ------------------------
-// *** Works Block ***
+// *** Projects Block ***
 // ------------------------
 
 
-app.route('/works/since').get(function(req, res) {
-  res.render('works/since.jade');
-});
-
-app.route('/works/grad').get(function(req, res) {
-  res.render('works/grad.jade');
-});
-
-app.route('/works/events').get(function(req, res) {
-  res.render('works/events.jade');
-});
-
-app.route('/works/publications').get(function(req, res) {
-  res.render('works/publications.jade');
-});
-
-app.route('/works/work').get(function(req, res) {
-  res.render('works/work.jade');
-});
-
-// ------------------------
-// *** Publications Block ***
-// ------------------------
-
-
-app.route('/publications').get(function(req, res) {
-  res.render('publications');
+app.route('/projects').get(function(req, res) {
+  res.render('projects');
 });
 
 
