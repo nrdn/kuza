@@ -1,0 +1,23 @@
+.projects_columns_block {
+	width: 1280px;
+	overflow: hidden;
+}
+
+.project_column {
+	width: 240px;
+	min-height: 600px;
+	margin-right: 20px;
+	float: left;
+	background-color: #4a9bd2;
+}
+
+.project_column:last-child {
+	margin-right: 0px;
+}
+
+.project_item {
+	width: 240px;
+	min-height: 150px;
+	margin-bottom: 20px;
+	background-color: #d2b3b9;
+}

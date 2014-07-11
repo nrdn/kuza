@@ -1,3 +1,8 @@
+.main_block {
+	width: 1280px;
+	margin: 0 auto;
+}
+
 .logo {
 	float: left;
 }
@@ -10,6 +15,18 @@
 	display: block;
 	float: left;
 	margin-right: 10px;
+	font: 14pt/16pt 'helveticaneuecyrlight';
+	color: #172E5D;
+	text-decoration: none;
+	cursor: default;
+}
+
+a.menu_item {
+	cursor: pointer;
+}
+
+a.menu_item:hover {
+	text-decoration: underline;
 }
 
 .menu_drop {
@@ -19,6 +36,13 @@
 
 .menu_drop a {
 	margin-right: 10px;
+	color: #172E5D;
+	text-decoration: none;
+	font: 10pt/12pt 'helveticaneuecyrlight';
+}
+
+.menu_drop a:hover {
+	text-decoration: underline;
 }
 
 .menu_item:hover > .menu_drop{
@@ -27,5 +51,5 @@
 
 .content_block {
 	width: 1280px;
-	outline: 1px solid black;
+	margin-top: 30px;
 }

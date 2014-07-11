@@ -4,7 +4,7 @@ html
 		include header
 	body
 		- var date = new Date()
-		include counters
+		//- include counters
 		.main_block
 			.header_block
 				a.logo(href='/'): img(src='/images/design/logo_black.png')
@@ -20,10 +20,10 @@ html
 					a.menu_item(href='#') Проекты
 					.menu_item В.А. Кузьмин
 						.menu_drop
-							a(href='#') Кузьмин
+							a(href='#') Статьи
 							a(href='#') Супер
 			.content_block
 				.content_title_block
 					block content_title
 				block content
-			.footer_block= 'КУЗЬМИН КАК ЯВЛЕНИЕ © ' + date.getFullYear()
+			.footer_block= 'Кузьмин как явление © ' + date.getFullYear()
