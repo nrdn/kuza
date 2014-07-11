@@ -21,3 +21,17 @@
 	margin-bottom: 20px;
 	background-color: #d2b3b9;
 }
+
+.project_image {
+	width: 240px;
+}
+
+.project_title {
+	color: #172E5D;
+	font: 12pt/14pt 'helveticaneuecyrlight';
+}
+
+.project_category {
+	font: 10pt/12pt 'helveticaneuecyrlight';
+	color: #F06E30;
+}
