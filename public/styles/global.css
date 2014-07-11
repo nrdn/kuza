@@ -3,12 +3,19 @@
 	margin: 0 auto;
 }
 
+.content_block {
+	width: 1280px;
+	margin-top: 30px;
+}
+
 .logo {
 	float: left;
 }
 
 .menu_block {
 	overflow: hidden;
+	float: left;
+	/*outline: 1px solid red;*/
 }
 
 .menu_item {
@@ -49,7 +56,14 @@ a.menu_item:hover {
 	display: block;
 }
 
-.content_block {
-	width: 1280px;
-	margin-top: 30px;
+.contacts_block {
+	margin-left: 20px;
+	display: inline-block;
+	/*outline: 1px solid red;*/
+}
+
+.contacts_inner {
+	float: left;
+	margin-right: 20px;
+	font: 10pt/12pt 'helveticaneuecyrlight';
 }
