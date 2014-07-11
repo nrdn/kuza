@@ -1,0 +1,31 @@
+.logo {
+	float: left;
+}
+
+.menu_block {
+	overflow: hidden;
+}
+
+.menu_item {
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+.menu_drop {
+	display: none;
+	position: absolute;
+}
+
+.menu_drop a {
+	margin-right: 10px;
+}
+
+.menu_item:hover > .menu_drop{
+	display: block;
+}
+
+.content_block {
+	width: 1280px;
+	outline: 1px solid black;
+}

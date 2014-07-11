@@ -152,6 +152,16 @@ app.route('/projects').get(function(req, res) {
 
 
 // ------------------------
+// *** Kuzmin Block ***
+// ------------------------
+
+
+app.route('/kuzmin').get(function(req, res) {
+  res.render('kuzmin');
+});
+
+
+// ------------------------
 // *** Set Locale Block ***
 // ------------------------
 
