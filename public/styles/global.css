@@ -15,7 +15,7 @@
 .menu_block {
 	overflow: hidden;
 	float: left;
-	/*outline: 1px solid red;*/
+	margin-left: 240px;
 }
 
 .menu_item {
@@ -64,6 +64,12 @@ a.menu_item:hover {
 
 .contacts_inner {
 	float: left;
-	margin-right: 20px;
+	margin-right: 10px;
+	color: #172E5D;
 	font: 10pt/12pt 'helveticaneuecyrlight';
+}
+
+.contacts_inner:last-child {
+	padding-left: 10px;
+	border-left: 1px solid #b5b4c1;
 }
