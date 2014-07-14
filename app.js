@@ -289,11 +289,14 @@ add_project.post(checkAuth, function(req, res) {
 
   if (files.image.size != 0) {
     var newPath = __dirname + '/public/images/projects/' + project._id + '/main.jpg';
-    gm(files.image.path).createDirectories().resize(1600, false).quality(80).noProfile().write(newPath, function() {
-      project.images.main = '/images/projects/' + project._id + '/main.jpg';
-      project.save(function() {
-        fs.unlink(files.image.path);
-        res.redirect('/auth/projects');
+
+    fs.mkdir(__dirname + '/public/images/projects/' + project._id, function() {
+      gm(files.image.path).resize(1600, false).quality(80).noProfile().write(newPath, function() {
+        project.images.main = '/images/projects/' + project._id + '/main.jpg';
+        project.save(function() {
+          fs.unlink(files.image.path);
+          res.redirect('/auth/projects');
+        });
       });
     });
   }
