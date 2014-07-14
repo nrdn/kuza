@@ -20,7 +20,7 @@ app.locals.pretty = true;
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser({ keepExtensions: true }));
-app.use(multer({ dest: './uploads/'}))
+app.use(multer({ dest: __dirname + '/uploads/'}))
 app.use(methodOverride());
 app.use(cookieParser());
 
