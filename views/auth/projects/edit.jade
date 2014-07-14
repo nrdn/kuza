@@ -23,15 +23,15 @@ block content
 	.form_block
 		a.back_link(href='/auth/projects') < Назад
 		.title РЕДАКТИРОВАТЬ ПРОЕКТ
-		form(action="/auth/projects/add", method="post")
+		form(action="", method="post")
 			.form_title Название:
 			input.ru(type="text", name="ru[title]", value=project.title.ru)
 			input.en(type="text", name="en[title]", disabled)
 			.form_title Описание:
-			textarea.ru(name="ru[description]", rows="8",)=project.title.ru
+			textarea.ru(name="ru[description]", rows="8",)=project.description.ru
 			textarea.en(name="en[description]", rows="8", disabled)
-			.form_title Регион:
-			select(name='region')
+			.form_title Категория:
+			select(name='category')
 				option(value='') нет
 				option(value='altai') Алтайский край
 				option(value='belg') Белгородская область

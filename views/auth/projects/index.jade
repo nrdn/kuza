@@ -21,6 +21,4 @@ block content
 			.project
 				a.rm_project(href='#', id=project._id)= 'удалить '
 				!=' | '
-				a(href='/auth/works/' + project._id) работы
-				!=' | '
 				a(href='/auth/projects/edit/' + project._id)= project.title.ru

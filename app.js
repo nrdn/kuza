@@ -253,83 +253,6 @@ edit_authors.post(checkAuth, function(req, res) {
 
 
 // ------------------------
-// *** Admin Publications Block ***
-// ------------------------
-
-
-app.route('/auth/publications/:author_id').get(checkAuth, function(req, res) {
-  var author_id = req.params.author_id;
-
-  Author.findById(author_id).populate('publishes').exec(function(err, author) {
-    res.render('auth/publications', {author: author});
-  });
-});
-
-
-
-// ------------------------
-// *** Add Publications Block ***
-// ------------------------
-
-
-var add_publish = app.route('/auth/publications/:author_id/add');
-
-
-add_publish.get(checkAuth, function(req, res) {
-  res.render('auth/publications/add.jade');
-});
-
-add_publish.post(checkAuth, function(req, res) {
-  var publish = new Publish();
-  var id = req.params.author_id;
-  var post = req.body;
-
-  publish.title.ru = post.ru.title;
-  publish.description.ru = post.ru.description;
-
-  publish.save(function(err, publish) {
-    Author.findById(id).exec(function(err, author) {
-      author.publishes.push(publish._id);
-      author.save(function(err, author) {
-        res.redirect('/auth/publications/' + id);
-      });
-    });
-  });
-});
-
-
-// ------------------------
-// *** Edit Publications Block ***
-// ------------------------
-
-
-var edit_publish = app.route('/auth/publications/edit/:publish_id');
-
-
-edit_publish.get(checkAuth, function(req, res) {
-  var id = req.params.publish_id;
-
-  Publish.findById(id).exec(function(err, publish) {
-    res.render('auth/publications/edit.jade', {publish: publish});
-  });
-});
-
-edit_publish.post(checkAuth, function(req, res) {
-  var id = req.params.publish_id;
-  var post = req.body;
-
-  Publish.findById(id).exec(function(err, publish) {
-    publish.title.ru = post.ru.title;
-    publish.description.ru = post.ru.description;
-
-    publish.save(function(err, publish) {
-      res.redirect('back');
-    });
-  });
-});
-
-
-// ------------------------
 // *** Admin Projects Block ***
 // ------------------------
 
@@ -346,17 +269,19 @@ app.route('/auth/projects').get(checkAuth, function(req, res) {
 // ------------------------
 
 
-app.route('/auth/projects/add').get(checkAuth, function(req, res) {
+var add_project = app.route('/auth/projects/add');
+
+add_project.get(checkAuth, function(req, res) {
   res.render('auth/projects/add.jade');
 });
 
-app.route('/auth/projects/add').post(checkAuth, function(req, res) {
+add_project.post(checkAuth, function(req, res) {
   var project = new Project();
   var post = req.body;
 
   project.title.ru = post.ru.title;
   project.description.ru = post.ru.description;
-  project.region = post.region;
+  project.category = post.category;
 
   project.save(function(err, project) {
     res.redirect('/auth/projects');
@@ -369,7 +294,9 @@ app.route('/auth/projects/add').post(checkAuth, function(req, res) {
 // ------------------------
 
 
-app.route('/auth/projects/edit/:project_id').get(checkAuth, function(req, res) {
+var edit_projects = app.route('/auth/projects/edit/:project_id');
+
+edit_projects.get(checkAuth, function(req, res) {
   var id = req.params.project_id;
 
   Project.findById(id).exec(function(err, project) {
@@ -377,82 +304,20 @@ app.route('/auth/projects/edit/:project_id').get(checkAuth, function(req, res) {
   });
 });
 
-
-
-// ------------------------
-// *** Admin Works Block ***
-// ------------------------
-
-
-app.route('/auth/works/:project_id').get(checkAuth, function(req, res) {
+edit_projects.post(checkAuth, function(req, res) {
   var id = req.params.project_id;
-
-  Project.findById(id).populate('works').exec(function(err, project) {
-    res.render('auth/works', {project: project});
-  });
-});
-
-
-
-// ------------------------
-// *** Add Work Block ***
-// ------------------------
-
-
-var add_work = app.route('/auth/works/:project_id/add');
-
-add_work.get(checkAuth, function(req, res) {
-  res.render('auth/works/add.jade');
-});
-
-add_work.post(function(req, res) {
   var post = req.body;
-  var work = new Work();
-  var id = req.params.project_id;
 
-  work.title.ru = post.ru.title;
-  work.description.ru = post.ru.description;
-  work.category = post.category;
-  work.region = post.region;
+  Project.findById(id).exec(function(err, project) {
 
-  work.save(function(err, work) {
-    Project.findById(id).exec(function(err, project) {
-      project.works.push(work._id);
-      project.save(function(err, project) {
-        res.redirect('back');
-      });
+    project.title.ru = post.ru.title;
+    project.description.ru = post.ru.description;
+    project.category = post.category;
+
+    project.save(function(err, project) {
+      res.redirect('/auth/projects');
     });
-  });
-});
 
-
-// ------------------------
-// *** Edit Works Block ***
-// ------------------------
-
-var edit_works = app.route('/auth/works/edit/:id')
-
-edit_works.get(checkAuth, function(req, res) {
-  var id = req.params.id;
-
-  Work.findById(id).exec(function(err, work) {
-    res.render('auth/works/edit.jade', {work: work});
-  });
-});
-
-edit_works.post(function(req, res) {
-  var id = req.params.id;
-  var post = req.body;
-  var date_modify = new Date();
-
-  Work.findById(id).exec(function(err, work) {
-    work.title.ru = post.ru.title;
-    work.description.ru = post.ru.description;
-    work.category = post.category;
-
-    work.save(function(err, work) {
-      res.redirect('back');
-    });
   });
 });
 
