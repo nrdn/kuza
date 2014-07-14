@@ -23,13 +23,15 @@ block content
 	.form_block
 		a.back_link(href='/auth/projects') < Назад
 		.title ДОБАВИТЬ ПРОЕКТ
-		form(action="/auth/projects/add", method="post")
+		form(action="/auth/projects/add", method="post", enctype="multipart/form-data")
 			.form_title Название:
 			input.ru(type="text", name="ru[title]",)
 			input.en(type="text", name="en[title]", disabled)
 			.form_title Описание:
 			textarea.ru(name="ru[description]", rows="8",)
 			textarea.en(name="en[description]", rows="8", disabled)
+			.form_title Картинка:
+			input(type='file', name='image')
 			.form_title Категория:
 			select(name='category')
 				option(value='') нет

@@ -8,6 +8,7 @@ var mongoose = require('mongoose'),
 
 var express = require('express'),
     bodyParser = require('body-parser'),
+    multer = require('multer'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
     methodOverride = require('method-override'),
@@ -18,12 +19,13 @@ app.set('view engine', 'jade');
 app.locals.pretty = true;
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser({ keepExtensions: true, uploadDir:__dirname + '/uploads' }));
+app.use(bodyParser({ keepExtensions: true }));
+app.use(multer({ dest: './uploads/'}))
 app.use(methodOverride());
 app.use(cookieParser());
 
 app.use(session({
-  key: 'mgu.sess',
+  key: 'kuzmin.sess',
   secret: 'keyboard cat',
   cookie: {
     path: '/',
@@ -278,14 +280,35 @@ add_project.get(checkAuth, function(req, res) {
 add_project.post(checkAuth, function(req, res) {
   var project = new Project();
   var post = req.body;
+  var files = req.files;
 
   project.title.ru = post.ru.title;
   project.description.ru = post.ru.description;
   project.category = post.category;
 
-  project.save(function(err, project) {
-    res.redirect('/auth/projects');
-  });
+
+  if (files.image.size != 0) {
+    var newPath = __dirname + '/public/images/projects/' + project._id + '/main.jpg';
+    gm(files.image.path).createDirectories().resize(1600, false).quality(80).noProfile().write(newPath, function() {
+      project.images.main = '/images/projects/' + project._id + '/main.jpg';
+      project.save(function() {
+        fs.unlink(files.image.path);
+        res.redirect('/auth/projects');
+      });
+    });
+  }
+  else {
+    project.save(function() {
+      fs.unlink(files.image.path);
+      res.redirect('/auth/projects');
+    });
+  }
+
+
+
+  // project.save(function(err, project) {
+  //   res.redirect('/auth/projects');
+  // });
 });
 
 
