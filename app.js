@@ -19,13 +19,16 @@ app.set('view engine', 'jade');
 app.locals.pretty = true;
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser({ keepExtensions: true }));
-app.use(multer({ dest: __dirname + '/uploads/'}))
+app.use(multer({ dest: __dirname + '/uploads'}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use(cookieParser());
 
 app.use(session({
   key: 'kuzmin.sess',
+  resave: false,
+  saveUninitialized: false,
   secret: 'keyboard cat',
   cookie: {
     path: '/',
