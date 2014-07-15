@@ -8,7 +8,7 @@
 	min-height: 600px;
 	margin-right: 20px;
 	float: left;
-	background-color: #4a9bd2;
+	/*background-color: #4a9bd2;*/
 }
 
 .project_column:last-child {
@@ -19,7 +19,7 @@
 	width: 240px;
 	min-height: 150px;
 	margin-bottom: 20px;
-	background-color: #d2b3b9;
+	/*background-color: #d2b3b9;*/
 }
 
 .project_image {

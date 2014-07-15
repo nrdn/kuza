@@ -12,24 +12,10 @@ block content_scripts
 
 block content
 	.projects_columns_block
-		.project_column
-			.project_item
-				img.project_image(src='')
-				.project_title Супер проект
-				.project_category Супер пупер
-			.project_item
-				img.project_image(src='')
-				.project_title
-				.project_category Рара ракета
-		.project_column
-		.project_column
-			.project_item
-				img.project_image(src='')
-				.project_title
-				.project_category
-			.project_item
-				img.project_image(src='')
-				.project_title
-				.project_category
-		.project_column
-		.project_column
+		each column in columns
+			.project_column
+				each project in column
+					.project_item
+						img.project_image(src=project.images.main)
+						a.project_title(href='/projects/' + project._id)= project.title.ru
+						.project_category= project.category

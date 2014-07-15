@@ -117,6 +117,23 @@ var deleteFolderRecursive = function(path) {
   }
 };
 
+function toMatrix(arr, rowCount) {
+  var row = 0, martrix = [], curIndex = 0;
+  var rows = Math.ceil(arr.length/rowCount);
+
+  for(var i = 0; i < arr.length; i++) {
+    if (martrix[row] == undefined) {
+      martrix[row] = [];
+    }
+    martrix[row].push(arr[i]);
+    row++;
+    if (row > rowCount) {
+      row = 0;
+    }
+  }
+  return martrix;
+}
+
 
 // ------------------------
 // *** Post parms Block ***
@@ -152,7 +169,10 @@ app.route('/company').get(function(req, res) {
 
 
 app.route('/projects').get(function(req, res) {
-  res.render('projects');
+  Project.find().sort('-date').lean().exec(function(err, projects) {
+    var columns = toMatrix(projects, 4);
+    res.render('projects', {columns: columns});
+  });
 });
 
 
