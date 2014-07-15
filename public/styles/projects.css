@@ -29,6 +29,11 @@
 .project_title {
 	color: #172E5D;
 	font: 12pt/14pt 'helveticaneuecyrlight';
+	text-decoration: none;
+}
+
+.project_title:hover {
+	text-decoration: underline;
 }
 
 .project_category {

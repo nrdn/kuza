@@ -169,7 +169,7 @@ app.route('/company').get(function(req, res) {
 
 
 app.route('/projects').get(function(req, res) {
-  Project.find().sort('-date').lean().exec(function(err, projects) {
+  Project.find().sort('-date').exec(function(err, projects) {
     var columns = toMatrix(projects, 4);
     res.render('projects', {columns: columns});
   });

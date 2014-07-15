@@ -62,6 +62,22 @@ var projectSchema = new Schema({
 });
 
 
+// ------------------------
+// *** Virtuals Block ***
+// ------------------------
+
+
+projectSchema.virtual('subs_category').get(function () {
+	var categorys = {'altai':'Алтайский край', 'belg':'Белгородская область'};
+  return categorys[this.category];
+});
+
+
+// ------------------------
+// *** Exports Block ***
+// ------------------------
+
+
 module.exports.User = mongoose.model('User', userSchema);
 module.exports.Member = mongoose.model('Member', memberSchema);
 module.exports.Project = mongoose.model('Project', projectSchema);
