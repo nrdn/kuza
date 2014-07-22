@@ -175,6 +175,14 @@ app.route('/projects').get(function(req, res) {
   });
 });
 
+app.route('/projects/:id').get(function(req, res) {
+  var id = req.params.id;
+
+  Project.findById(id).exec(function(err, project) {
+    res.render('projects/project.jade', {project: project});
+  });
+});
+
 
 // ------------------------
 // *** Kuzmin Block ***

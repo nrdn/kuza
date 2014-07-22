@@ -12,10 +12,14 @@
 	float: left;
 }
 
+.logo img {
+	width: 200px;
+}
+
 .menu_block {
 	overflow: hidden;
 	float: left;
-	margin-left: 240px;
+	margin-left: 60px;
 }
 
 .menu_item {
@@ -26,6 +30,13 @@
 	color: #172E5D;
 	text-decoration: none;
 	cursor: default;
+	border-right: 1px solid #b5b4c1;
+	padding-right: 10px;
+}
+
+.menu_item:last-child {
+	border-right: 0;
+	padding-right: 0;
 }
 
 a.menu_item {
@@ -57,7 +68,7 @@ a.menu_item:hover {
 }
 
 .contacts_block {
-	margin-left: 20px;
+	margin-left: 196px;
 	display: inline-block;
 	/*outline: 1px solid red;*/
 }

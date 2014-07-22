@@ -1,0 +1,26 @@
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.project_title {
+	font: 22pt/24pt 'helveticaneuecyrlight';
+}
+
+.project_image_main {
+	width: 1280px;
+	height: 500px;
+	background-size: cover;
+	background-position: center;
+	position: fixed;
+	z-index: 0;
+}
+
+.project_content_block {
+	margin-top: 500px;
+	position: absolute;
+	outline: 1px solid red;
+	width: 1280px;
+	height: 800px;
+	background-color: white;
+}

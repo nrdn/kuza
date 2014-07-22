@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title= 'ПРОЕКТЫ | ' + project.title.ru.toUpperCase()
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/project.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/project.js' + version)
+
+
+block content
+	.project_image_main(style='background-image:url(' + project.images.main + ')')
+	.project_content_block
+		h1.project_title= project.title.ru
+		.project_description_block
