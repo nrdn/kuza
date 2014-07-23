@@ -7,11 +7,15 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/styles/project.css' + version)
 
 block content_scripts
+	script(type='text/javascript', src='/scripts/jquery-mapnavigate.js' + version)
 	script(type='text/javascript', src='/scripts/project.js' + version)
 
+block content_sub
+	.project_image_main
+		img.project_image_main_inner(src=project.images.main)
 
 block content
-	.project_image_main(style='background-image:url(' + project.images.main + ')')
 	.project_content_block
 		h1.project_title= project.title.ru
 		.project_description_block
+			.project_description= project.description.ru
