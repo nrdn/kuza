@@ -88,3 +88,7 @@ a.menu_item:hover {
 	padding-left: 10px;
 	border-left: 1px solid #b5b4c1;
 }
+
+.footer_block {
+	margin-top: 20px;
+}

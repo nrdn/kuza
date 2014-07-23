@@ -11,11 +11,19 @@ block content_scripts
 	script(type='text/javascript', src='/scripts/project.js' + version)
 
 block content_sub
-	.project_image_main
-		img.project_image_main_inner(src=project.images.main)
 
 block content
+	.project_image_main
+		img.project_image_main_inner(src=project.images.main)
 	.project_content_block
 		h1.project_title= project.title.ru
+		.project_category= project.subs_category
 		.project_description_block
 			.project_description= project.description.ru
+			.project_columns_block колонки
+		.project_block_title Изображения
+		.project_images_slave images slave
+		.project_block_title Карты
+		.project_images_maps images maps
+		.project_block_title Отзывы о проекте
+		.project_comments_block comments

@@ -6,22 +6,68 @@ h1 {
 .project_title {
 	font: 22pt/24pt 'helveticaneuecyrlight';
 	color: #172E5D;
+	border-bottom: 1px solid #b5b4c1;
+	margin-top: 20px;
+	padding-bottom: 5px;
+}
+
+.project_block_title {
+	font: 22pt/24pt 'helveticaneuecyrlight';
+	color: #172E5D;
+	border-bottom: 1px solid #b5b4c1;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.project_category {
+	font: 10pt/12pt 'helveticaneuecyrlight';
+	color: #F06E30;
+	margin-top: 5px;
 }
 
 .project_image_main {
 	width: 1280px;
 	height: 500px;
 	overflow: hidden;
-	position: fixed;
-	z-index: 0;
 }
 
 .project_content_block {
-	z-index: 1;
-	position: relative;
-	margin-top: 500px;
-	outline: 1px solid white;
+	/*height: 800px;*/
+}
+
+.project_description_block {
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.project_description {
+	width: 640px;
+	height: 400px;
+	background-color: #b5b4c1;
+	float: left;
+}
+
+.project_columns_block {
+	width: 640px;
+	height: 400px;
+	background-color: #65c19d;
+	float: left;
+}
+
+.project_images_slave {
 	width: 1280px;
-	height: 800px;
-	background-color: white;
+	height: 400px;
+	background-color: #c1a89a;
+}
+
+.project_images_maps {
+	width: 1280px;
+	height: 400px;
+	background-color: #8777c1;
+}
+
+.project_comments_block {
+	width: 1280px;
+	height: 400px;
+	background-color: #c1b863;
 }
