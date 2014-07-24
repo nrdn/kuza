@@ -41,14 +41,15 @@ h1 {
 }
 
 .project_description {
-	width: 640px;
+	width: 620px;
 	height: 400px;
 	background-color: #b5b4c1;
 	float: left;
+	margin-right: 40px;
 }
 
 .project_columns_block {
-	width: 640px;
+	width: 620px;
 	height: 400px;
 	background-color: #65c19d;
 	float: left;
@@ -77,11 +78,32 @@ h1 {
 	background-color: #c16978;
 }
 
-.project_images_maps {
+.project_images_maps_block {
 	width: 1280px;
-	height: 400px;
+	overflow: hidden;
 	background-color: #8777c1;
 }
+
+
+.images_maps_column {
+	width: 240;
+	margin-right: 20px;
+	float: left;
+	background-color: #c19b3f;
+}
+
+.images_maps_column:last-child {
+	margin-right: 0px;
+}
+
+.image_maps {
+	width: 240px;
+	height: 240px;
+	background-color: #4e8dc1;
+}
+
+
+
 
 .project_comments_block {
 	width: 1280px;
