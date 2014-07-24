@@ -54,10 +54,27 @@ h1 {
 	float: left;
 }
 
-.project_images_second {
+.project_images_second_block {
 	width: 1280px;
-	height: 400px;
 	background-color: #c1a89a;
+	overflow: hidden;
+}
+
+.images_second_column {
+	width: 400px;
+	background-color: #2fc19d;
+	float: left;
+	margin-right: 40px;
+}
+
+.images_second_column:last-child {
+	margin-right: 0px;
+}
+
+.image_second {
+	width: 400px;
+	height: 400px;
+	background-color: #c16978;
 }
 
 .project_images_maps {
