@@ -13,6 +13,7 @@ block content_scripts
 block content_sub
 
 block content
+	- var date = new Date()
 	.project_image_main
 		img.project_image_main_inner(src=project.images.main)
 	.project_content_block
@@ -43,3 +44,4 @@ block content
 				.image_maps 5
 		.project_block_title Отзывы о проекте
 		.project_comments_block comments
+		.project_footer_block= 'Кузьмин как наваждение ' + date.getFullYear()

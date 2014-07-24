@@ -1,3 +1,7 @@
+.footer_block {
+	display: none;
+}
+
 h1 {
 	margin: 0;
 	padding: 0;
@@ -29,10 +33,13 @@ h1 {
 	width: 1280px;
 	height: 500px;
 	overflow: hidden;
+	position: absolute;
 }
 
 .project_content_block {
-	/*height: 800px;*/
+	position: absolute;
+	background-color: white;
+	margin-top: 500px;
 }
 
 .project_description_block {
@@ -109,4 +116,8 @@ h1 {
 	width: 1280px;
 	height: 400px;
 	background-color: #c1b863;
+}
+
+.project_footer_block {
+	margin-top: 20px;
 }
