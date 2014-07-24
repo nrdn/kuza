@@ -57,6 +57,7 @@ var projectSchema = new Schema({
 	tech: [String],
 	build: {type: Date, default: Date.now},
 	category: String,
+	old: {type: Boolean, default: false},
 	members: [{ type: Schema.Types.ObjectId, ref: 'Member' }],
 	date: {type: Date, default: Date.now},
 });

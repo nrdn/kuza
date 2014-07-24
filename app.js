@@ -169,7 +169,7 @@ app.route('/company').get(function(req, res) {
 
 
 app.route('/projects').get(function(req, res) {
-  Project.find().sort('-date').exec(function(err, projects) {
+  Project.find().where('old').ne(true).sort('-date').exec(function(err, projects) {
     var columns = toMatrix(projects, 4);
     res.render('projects', {columns: columns});
   });
@@ -370,6 +370,7 @@ edit_projects.post(checkAuth, function(req, res) {
     project.title.ru = post.ru.title;
     project.description.ru = post.ru.description;
     project.category = post.category;
+    project.old = post.old;
 
     project.save(function(err, project) {
       res.redirect('/auth/projects');

@@ -30,6 +30,9 @@ block content
 			.form_title Описание:
 			textarea.ru(name="ru[description]", rows="8",)=project.description.ru
 			textarea.en(name="en[description]", rows="8", disabled)
+			.form_title Прошлые:
+			input(type='checkbox', name='old', value='true', checked=project.old)
+			|архив
 			.form_title Категория:
 			select(name='category')
 				option(value='') нет
