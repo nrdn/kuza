@@ -46,6 +46,7 @@
 	width: 400px;
 	height: 400px;
 	float: left;
+	position: relative;
 	margin-right: 40px;
 	margin-bottom: 20px;
 	background-color: #c17848;
@@ -59,16 +60,39 @@
 	width: 400px;
 	min-height: 40px;
 	outline: none;
-	/*position: absolute;*/
-	/*bottom: 0;*/
+	position: absolute;
+	bottom: 0;
 	background-color: #76c169;
 }
 
 .form_images_maps {
 	width: 1280px;
-	height: 400px;
+	overflow: hidden;
 	margin-top: 20px;
 	background-color: #c19db9;
+}
+
+.image_maps_preview {
+	width: 240px;
+	height: 240px;
+	float: left;
+	position: relative;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	background-color: #c17848;
+}
+
+.image_maps_preview:nth-child(5n) {
+	margin-right: 0px;
+}
+
+.image_maps_description {
+	width: 240px;
+	min-height: 40px;
+	outline: none;
+	position: absolute;
+	bottom: 0;
+	background-color: #65abc1;
 }
 
 .form_title {

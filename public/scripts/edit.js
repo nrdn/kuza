@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('.form_description').popline({disable:['color']});
-	// $('#one').sortable({connectWith: '#two', placeholder: 'column_placeholder', cancel: '.m_comment, .m_search'});
-	// $('#two').sortable({connectWith: '#one', placeholder: 'column_placeholder', cancel: '.m_comment, .m_search'});
+	$('.form_images_second').sortable({placeholder: 'column_placeholder', cancel: '.image_second_description'});
+	$('.form_images_maps').sortable({placeholder: 'column_placeholder', cancel: '.image_maps_description'});
 
 
 
