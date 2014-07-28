@@ -106,7 +106,12 @@ $(document).ready(function() {
 
 
 
+	// $('.footer_block').click(function(event) {
 
+	// 	var old = $('.form_old').is(':checked') ? true : false
+
+	// 	console.log(old)
+	// });
 
 
 
@@ -115,10 +120,41 @@ $(document).ready(function() {
 
 
 	$('.submit').click(function(event) {
+		var images_second_upload = [];
+		var images_maps_upload = [];
+
 		var title = $('.form_title').html();
 		var description = $('.form_description').html();
-		var old = $('.form_old').val();
+		var old = $('.form_old').is(':checked') ? true : false
 		var category = $('.form_category').val();
+
+		var images_main = $('.form_image_main').attr('style').match(/\(([^)]+)\)/)[0].slice(1,-1).replace('http://' + window.location.host, '');
+		var images_second = $('.image_second_preview');
+		var images_maps = $('.image_maps_preview');
+
+
+		images_second.each(function(index, el) {
+			images_second_upload.push({
+				path: $(this).attr('style').slice(21, -1),
+				description: $(this).children('.image_second_description').text()
+			});
+		});
+
+
+		images_maps.each(function(index, el) {
+			images_maps_upload.push({
+				path: $(this).attr('style').slice(21, -1),
+				description: $(this).children('.image_maps_description').text()
+			});
+		});
+
+
+		var images = {
+			main: images_main,
+			second: images_second_upload,
+			maps: images_maps_upload
+		}
+
 
 		var ru = {
 			title: title,
@@ -128,6 +164,7 @@ $(document).ready(function() {
 		$.post('', {
 			ru: ru,
 			old: old,
+			images: images,
 			category: category
 		}).done(function(project) {
 

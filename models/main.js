@@ -51,8 +51,14 @@ var projectSchema = new Schema({
 	},
 	images: {
 		main: String,
-		second: [String],
-		maps: [String]
+		second: [{
+			path: String,
+			description: String
+		}],
+		maps: [{
+			path: String,
+			description: String
+		}]
 	},
 	tech: [String],
 	build: {type: Date, default: Date.now},

@@ -325,6 +325,8 @@ add_project.post(checkAuth, function(req, res) {
   project.title.ru = post.ru.title;
   project.description.ru = post.ru.description;
   project.category = post.category;
+  project.old = post.old;
+  project.images = post.images;
 
   project.save(function(err, project) {
     res.send(project);
