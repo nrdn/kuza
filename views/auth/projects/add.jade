@@ -4,42 +4,32 @@ block title
 	title ДОБАВИТЬ ПРОЕКТ
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+	link(rel="stylesheet", type="text/css", href="/styles/popclip.css" + version)
+	link(rel='stylesheet', type='text/css', href='/styles/edit.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='/scripts/add.js')
+	script(type="text/javascript", src='/scripts/jquery.popline.min.js' + version)
+	script(type='text/javascript', src='/scripts/jquery.filedrop.js' + version)
+	script(type='text/javascript', src='/scripts/edit.js' + version)
 
 block content_right
-	.navigator
-		.nav_title РАБОТА
-		.nav_project_children
-		br
-		b.nav_settings_title настройки
-		.toggle_eng перевод
-		br
-		b.form_submit ОТПРАВИТЬ
+	.form_options
+		input.form_old(type='checkbox', name='old', value='true')
+		|архив
+		.separator_title Категория:
+		select.form_category(name='category')
+			option(value='') нет
+			option(value='altai') Алтайский край
+			option(value='belg') Белгородская область
 
 block content
-	.form_block
+	.edit_project_block
+		input#image_main_fallback(type='file')
 		a.back_link(href='/auth/projects') < Назад
 		.title ДОБАВИТЬ ПРОЕКТ
-		form(action="/auth/projects/add", method="post", enctype="multipart/form-data")
-			.form_title Название:
-			input.ru(type="text", name="ru[title]",)
-			input.en(type="text", name="en[title]", disabled)
-			.form_title Описание:
-			textarea.ru(name="ru[description]", rows="8",)
-			textarea.en(name="en[description]", rows="8", disabled)
-			.form_title Прошлые:
-			input(type='checkbox', name='old', value='true')
-			|архив
-			.form_title Картинка:
-			input(type='file', name='image')
-			.form_title Категория:
-			select(name='category')
-				option(value='') нет
-				option(value='altai') Алтайский край
-				option(value='belg') Белгородская область
-			br
-			br
-			input(type='submit', value='отправить')
+		.form_image_main
+		.form_title(contenteditable=true) Заголовок
+		.form_description(contenteditable=true) Описание
+		.form_images_second
+		.form_images_maps
+		.submit Добавить

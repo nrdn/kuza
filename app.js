@@ -140,7 +140,16 @@ function toMatrix(arr, rowCount) {
 // ------------------------
 
 
-// ---------------------------------------------------
+app.route('/upload').post(function(req, res) {
+  var files = req.files;
+  var date = new Date();
+  date = date.getTime();
+  var newPath = '/preview/' + date + '.' + files.image.extension;
+
+  gm(files.image.path).resize(1600, false).quality(80).noProfile().write(__dirname + '/public' + newPath, function() {
+    res.send(newPath);
+  });
+});
 
 
 // ------------------------
@@ -317,32 +326,32 @@ add_project.post(checkAuth, function(req, res) {
   project.description.ru = post.ru.description;
   project.category = post.category;
 
-
-  if (files.image.size != 0) {
-    var newPath = __dirname + '/public/images/projects/' + project._id + '/main.jpg';
-
-    fs.mkdir(__dirname + '/public/images/projects/' + project._id, function() {
-      gm(files.image.path).resize(1600, false).quality(80).noProfile().write(newPath, function() {
-        project.images.main = '/images/projects/' + project._id + '/main.jpg';
-        project.save(function() {
-          fs.unlink(files.image.path);
-          res.redirect('/auth/projects');
-        });
-      });
-    });
-  }
-  else {
-    project.save(function() {
-      fs.unlink(files.image.path);
-      res.redirect('/auth/projects');
-    });
-  }
+  project.save(function(err, project) {
+    res.send(project);
+  });
 
 
+  // if (files.image.size != 0) {
+  //   var newPath = __dirname + '/public/images/projects/' + project._id + '/main.jpg';
 
-  // project.save(function(err, project) {
-  //   res.redirect('/auth/projects');
-  // });
+  //   fs.mkdir(__dirname + '/public/images/projects/' + project._id, function() {
+  //     gm(files.image.path).resize(1600, false).quality(80).noProfile().write(newPath, function() {
+  //       project.images.main = '/images/projects/' + project._id + '/main.jpg';
+  //       project.save(function() {
+  //         fs.unlink(files.image.path);
+  //         res.redirect('/auth/projects');
+  //       });
+  //     });
+  //   });
+  // }
+  // else {
+  //   project.save(function() {
+  //     fs.unlink(files.image.path);
+  //     res.redirect('/auth/projects');
+  //   });
+  // }
+
+
 });
 
 
