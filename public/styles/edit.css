@@ -36,9 +36,32 @@
 
 .form_images_second {
 	width: 1280px;
-	height: 400px;
+	min-height: 400px;
+	overflow: hidden;
 	margin-top: 20px;
 	background-color: #6679c1;
+}
+
+.image_second_preview {
+	width: 400px;
+	height: 400px;
+	float: left;
+	margin-right: 40px;
+	margin-bottom: 20px;
+	background-color: #c17848;
+}
+
+.image_second_preview:nth-child(3n) {
+	margin-right: 0px;
+}
+
+.image_second_description {
+	width: 400px;
+	min-height: 40px;
+	outline: none;
+	/*position: absolute;*/
+	/*bottom: 0;*/
+	background-color: #76c169;
 }
 
 .form_images_maps {
