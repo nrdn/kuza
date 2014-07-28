@@ -47,6 +47,8 @@
 	height: 400px;
 	float: left;
 	position: relative;
+	background-size: cover;
+	background-position: center;
 	margin-right: 40px;
 	margin-bottom: 20px;
 	background-color: #c17848;
@@ -67,6 +69,7 @@
 
 .form_images_maps {
 	width: 1280px;
+	min-height: 400px;
 	overflow: hidden;
 	margin-top: 20px;
 	background-color: #c19db9;
@@ -77,6 +80,8 @@
 	height: 240px;
 	float: left;
 	position: relative;
+	background-size: cover;
+	background-position: center;
 	margin-right: 20px;
 	margin-bottom: 20px;
 	background-color: #c17848;
@@ -128,6 +133,6 @@
 	background-color: #c1324b;
 }
 
-#image_main_fallback {
+#image_main_fallback, #images_second_fallback {
 	display: none;
 }
