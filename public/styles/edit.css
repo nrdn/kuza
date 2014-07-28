@@ -29,7 +29,6 @@
 	width: 1280px;
 	height: 400px;
 	margin-top: 20px;
-	text-align: center;
 	background-size: cover;
 	background-position: center;
 	background-color: #a2c179;
@@ -40,7 +39,6 @@
 	min-height: 400px;
 	overflow: hidden;
 	margin-top: 20px;
-	text-align: center;
 	background-color: #6679c1;
 }
 
@@ -56,7 +54,7 @@
 	background-color: #c17848;
 }
 
-.image_second_preview:nth-child(3n) {
+.image_second_preview:nth-child(4n) {
 	margin-right: 0px;
 }
 
@@ -74,7 +72,6 @@
 	min-height: 400px;
 	overflow: hidden;
 	margin-top: 20px;
-	text-align: center;
 	background-color: #c19db9;
 }
 
@@ -90,7 +87,7 @@
 	background-color: #c17848;
 }
 
-.image_maps_preview:nth-child(5n) {
+.image_maps_preview:nth-child(6n) {
 	margin-right: 0px;
 }
 
