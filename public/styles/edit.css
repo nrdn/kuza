@@ -29,6 +29,7 @@
 	width: 1280px;
 	height: 400px;
 	margin-top: 20px;
+	text-align: center;
 	background-size: cover;
 	background-position: center;
 	background-color: #a2c179;
@@ -39,6 +40,7 @@
 	min-height: 400px;
 	overflow: hidden;
 	margin-top: 20px;
+	text-align: center;
 	background-color: #6679c1;
 }
 
@@ -72,6 +74,7 @@
 	min-height: 400px;
 	overflow: hidden;
 	margin-top: 20px;
+	text-align: center;
 	background-color: #c19db9;
 }
 
@@ -106,6 +109,12 @@
 	margin-top: 20px;
 	outline: 0px;
 	font: 16pt/18pt 'helveticaneuecyrlight';
+}
+
+.form_desc_title {
+	position: absolute;
+	display: inline-block;
+	font: 12pt/14pt 'helveticaneuecyrlight';
 }
 
 .form_description {
