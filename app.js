@@ -325,43 +325,40 @@ add_project.post(checkAuth, function(req, res) {
   // project.images = post.images;
 
   var public_path = __dirname + '/public';
-  var main_path = '/images/projects/' + project._id + '/main/';
-  var second_path = '/images/projects/' + project._id + '/second/';
-  var maps_path = '/images/projects/' + project._id + '/maps/';
 
-  async.forEach(post.images.second, function(image) {
-    fs.rename(public_path + image.path, public_path + second_path + image.path.split('/')[1]);
-    project.images.second.push({
-      path: second_path + image.path.split('/')[1],
-      description: image.description
+  var path = {
+    main: '/images/projects/' + project._id + '/main/',
+    second: '/images/projects/' + project._id + '/second/',
+    maps: '/images/projects/' + project._id + '/maps/'
+  }
+
+  fs.mkdir(public_path + '/images/projects/' + project._id);
+
+  var create = function(type) {
+    fs.mkdir(public_path + path[type], function() {
+      async.forEach(post.images[type], function(image) {
+        fs.rename(public_path + image.path, public_path + path[type] + image.path.split('/')[2]);
+        project.images[type].push({
+          path: path[type] + image.path.split('/')[2],
+          description: image.description
+        });
+      });
+    });
+  }
+
+  async.parallel([
+    async.apply(create, 'second'),
+    async.apply(create, 'maps')
+  ], function(err, results) {
+    project.save(function(err, project) {
+      res.send(project);
     });
   });
 
-  project.save(function(err, project) {
-    res.send(project);
-  });
 
-
-  // if (files.image.size != 0) {
-  //   var newPath = __dirname + '/public/images/projects/' + project._id + '/main.jpg';
-
-  //   fs.mkdir(__dirname + '/public/images/projects/' + project._id, function() {
-  //     gm(files.image.path).resize(1600, false).quality(80).noProfile().write(newPath, function() {
-  //       project.images.main = '/images/projects/' + project._id + '/main.jpg';
-  //       project.save(function() {
-  //         fs.unlink(files.image.path);
-  //         res.redirect('/auth/projects');
-  //       });
-  //     });
-  //   });
-  // }
-  // else {
-  //   project.save(function() {
-  //     fs.unlink(files.image.path);
-  //     res.redirect('/auth/projects');
-  //   });
-  // }
-
+  // project.save(function(err, project) {
+  //   res.send(project);
+  // });
 
 });
 
