@@ -322,7 +322,20 @@ add_project.post(checkAuth, function(req, res) {
   project.description.ru = post.ru.description;
   project.category = post.category;
   project.old = post.old;
-  project.images = post.images;
+  // project.images = post.images;
+
+  var public_path = __dirname + '/public';
+  var main_path = '/images/projects/' + project._id + '/main/';
+  var second_path = '/images/projects/' + project._id + '/second/';
+  var maps_path = '/images/projects/' + project._id + '/maps/';
+
+  async.forEach(post.images.second, function(image) {
+    fs.rename(public_path + image.path, public_path + second_path + image.path.split('/')[1]);
+    project.images.second.push({
+      path: second_path + image.path.split('/')[1],
+      description: image.description
+    });
+  });
 
   project.save(function(err, project) {
     res.send(project);
