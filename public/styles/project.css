@@ -50,29 +50,29 @@ h1 {
 .project_description {
 	width: 620px;
 	height: 400px;
-	background-color: #b5b4c1;
 	float: left;
 	margin-right: 40px;
+	background-color: #b5b4c1;
 }
 
 .project_columns_block {
 	width: 620px;
 	height: 400px;
-	background-color: #65c19d;
 	float: left;
+	background-color: #65c19d;
 }
 
 .project_images_second_block {
 	width: 1280px;
-	background-color: #c1a89a;
 	overflow: hidden;
+	/*background-color: #c1a89a;*/
 }
 
 .images_second_column {
 	width: 400px;
-	background-color: #2fc19d;
 	float: left;
 	margin-right: 40px;
+	/*background-color: #2fc19d;*/
 }
 
 .images_second_column:last-child {
@@ -82,13 +82,15 @@ h1 {
 .image_second {
 	width: 400px;
 	height: 400px;
-	background-color: #c16978;
+	background-size: cover;
+	background-position: center;
+	/*background-color: #c16978;*/
 }
 
 .project_images_maps_block {
 	width: 1280px;
 	overflow: hidden;
-	background-color: #8777c1;
+	/*background-color: #8777c1;*/
 }
 
 
@@ -96,7 +98,7 @@ h1 {
 	width: 240;
 	margin-right: 20px;
 	float: left;
-	background-color: #c19b3f;
+	/*background-color: #c19b3f;*/
 }
 
 .images_maps_column:last-child {
@@ -106,6 +108,8 @@ h1 {
 .image_maps {
 	width: 240px;
 	height: 240px;
+	background-size: cover;
+	background-position: center;
 	background-color: #4e8dc1;
 }
 

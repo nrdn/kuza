@@ -117,21 +117,14 @@ var deleteFolderRecursive = function(path) {
   }
 };
 
-function toMatrix(arr, rowCount) {
-  var row = 0, martrix = [], curIndex = 0;
-  var rows = Math.ceil(arr.length/rowCount);
 
-  for(var i = 0; i < arr.length; i++) {
-    if (martrix[row] == undefined) {
-      martrix[row] = [];
-    }
-    martrix[row].push(arr[i]);
-    row++;
-    if (row > rowCount) {
-      row = 0;
-    }
+function toMatrix(arr, row) {
+  var a = [];
+  for (var i = 0; i < row;) {
+    a[i] ? a[i].push(arr.shift()) : (a[i] = []);
+    i = ++i % row;
+    if (!arr.length) return a;
   }
-  return martrix;
 }
 
 
@@ -179,7 +172,7 @@ app.route('/company').get(function(req, res) {
 
 app.route('/projects').get(function(req, res) {
   Project.find().where('old').ne(true).sort('-date').exec(function(err, projects) {
-    var columns = toMatrix(projects, 4);
+    var columns = toMatrix(projects, 5);
     res.render('projects', {columns: columns});
   });
 });
@@ -188,7 +181,10 @@ app.route('/projects/:id').get(function(req, res) {
   var id = req.params.id;
 
   Project.findById(id).exec(function(err, project) {
-    res.render('projects/project.jade', {project: project});
+    var second = toMatrix(project.images.second, 3);
+    var maps = toMatrix(project.images.maps, 5);
+
+    res.render('projects/project.jade', {project: project, images_second_columns: second, images_maps_columns: maps});
   });
 });
 

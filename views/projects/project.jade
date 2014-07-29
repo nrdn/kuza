@@ -22,24 +22,16 @@ block content
 			.project_columns_block колонки
 		.project_block_title Изображения
 		.project_images_second_block
-			.images_second_column
-				.image_second 1
-			.images_second_column
-				.image_second 2
-			.images_second_column
-				.image_second 3
+			each column in images_second_columns
+				.images_second_column
+					each image in column
+						.image_second(style='background-image:url(' + image.path + ')')
 		.project_block_title Карты
 		.project_images_maps_block
-			.images_maps_column
-				.image_maps 1
-			.images_maps_column
-				.image_maps 2
-			.images_maps_column
-				.image_maps 3
-			.images_maps_column
-				.image_maps 4
-			.images_maps_column
-				.image_maps 5
+			each column in images_maps_columns
+				.images_maps_column
+					each image in column
+						.image_maps(style='background-image:url(' + image.path + ')')
 		.project_block_title Отзывы о проекте
 		.project_comments_block comments
 		.project_footer_block= 'Кузьмин как наваждение ' + date.getFullYear()
