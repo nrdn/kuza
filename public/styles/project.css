@@ -62,58 +62,80 @@ h1 {
 	background-color: #65c19d;
 }
 
+
+/*
+	Images Second
+ */
+
+
 .project_images_second_block {
 	width: 1280px;
 	overflow: hidden;
-	/*background-color: #c1a89a;*/
 }
 
 .images_second_column {
 	width: 400px;
 	float: left;
 	margin-right: 40px;
-	/*background-color: #2fc19d;*/
 }
 
 .images_second_column:last-child {
 	margin-right: 0px;
 }
 
+.image_second_block {
+	width: 400px;
+	margin-bottom: 20px;
+}
+
 .image_second {
 	width: 400px;
-	height: 400px;
-	background-size: cover;
-	background-position: center;
-	/*background-color: #c16978;*/
 }
+
+.image_second_description {
+	width: 400px;
+	font: 10pt/12pt 'helveticaneuecyrlight';
+}
+
+
+/*
+	Image Maps
+ */
+
 
 .project_images_maps_block {
 	width: 1280px;
 	overflow: hidden;
-	/*background-color: #8777c1;*/
 }
-
 
 .images_maps_column {
 	width: 240;
 	margin-right: 20px;
 	float: left;
-	/*background-color: #c19b3f;*/
 }
 
 .images_maps_column:last-child {
 	margin-right: 0px;
 }
 
+.image_maps_block {
+	width: 240px;
+	margin-bottom: 20px;
+}
+
 .image_maps {
 	width: 240px;
-	height: 240px;
-	background-size: cover;
-	background-position: center;
-	background-color: #4e8dc1;
+}
+
+.image_maps_description {
+	width: 240px;
+	font: 10pt/12pt 'helveticaneuecyrlight';
 }
 
 
+/*
+	Comments
+ */
 
 
 .project_comments_block {
