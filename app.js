@@ -322,7 +322,6 @@ add_project.post(checkAuth, function(req, res) {
   project.description.ru = post.ru.description;
   project.category = post.category;
   project.old = post.old;
-  // project.images = post.images;
 
   var public_path = __dirname + '/public';
 
@@ -334,7 +333,15 @@ add_project.post(checkAuth, function(req, res) {
 
   fs.mkdir(public_path + '/images/projects/' + project._id);
 
-  var create = function(type, callback) {
+  var single = function(type, callback) {
+    fs.mkdir(public_path + path[type], function() {
+      fs.rename(public_path + post.images[type], public_path + path[type] + post.images[type].split('/')[2]);
+      project.images[type] = path[type] + post.images[type].split('/')[2];
+      callback(null, type);
+    });
+  }
+
+  var multi = function(type, callback) {
     fs.mkdir(public_path + path[type], function() {
       async.forEach(post.images[type], function(image, loop_callback) {
         fs.rename(public_path + image.path, public_path + path[type] + image.path.split('/')[2]);
@@ -350,18 +357,14 @@ add_project.post(checkAuth, function(req, res) {
   }
 
   async.parallel([
-    async.apply(create, 'second'),
-    async.apply(create, 'maps')
+    async.apply(single, 'main'),
+    async.apply(multi, 'second'),
+    async.apply(multi, 'maps')
   ], function(err, results) {
     project.save(function(err, project) {
       res.send(project);
     });
   });
-
-
-  // project.save(function(err, project) {
-  //   res.send(project);
-  // });
 
 });
 
