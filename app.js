@@ -429,8 +429,48 @@ edit_projects.post(checkAuth, function(req, res) {
     project.category = post.category;
     project.old = post.old;
 
-    project.save(function(err, project) {
-      res.redirect('/auth/projects');
+    var public_path = __dirname + '/public';
+
+    var path = {
+      main: '/images/projects/' + project._id + '/main/',
+      second: '/images/projects/' + project._id + '/second/',
+      maps: '/images/projects/' + project._id + '/maps/'
+    }
+
+    fs.mkdir(public_path + '/images/projects/' + project._id);
+
+    var single = function(type, callback) {
+      fs.mkdir(public_path + path[type], function() {
+        fs.rename(public_path + post.images[type], public_path + path[type] + post.images[type].split('/')[2]);
+        project.images[type] = path[type] + post.images[type].split('/')[2];
+        callback(null, type);
+      });
+    }
+
+    var multi = function(type, callback) {
+      project.images[type] = [];
+      fs.mkdir(public_path + path[type], function() {
+        async.forEach(post.images[type], function(image, loop_callback) {
+          fs.rename(public_path + image.path, public_path + path[type] + image.path.split('/')[2]);
+          project.images[type].push({
+            path: path[type] + image.path.split('/')[2],
+            description: image.description
+          });
+          loop_callback();
+        }, function() {
+          callback(null, type);
+        });
+      });
+    }
+
+    async.parallel([
+      async.apply(single, 'main'),
+      async.apply(multi, 'second'),
+      async.apply(multi, 'maps')
+    ], function(err, results) {
+      project.save(function(err, project) {
+        res.send(project);
+      });
     });
 
   });

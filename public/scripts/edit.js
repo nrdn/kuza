@@ -135,7 +135,7 @@ $(document).ready(function() {
 
 		images_second.each(function(index, el) {
 			images_second_upload.push({
-				path: $(this).attr('style').slice(21, -1),
+				path: $(this).attr('style').match(/\(([^)]+)\)/)[0].slice(1,-1).replace('http://' + window.location.host, ''),
 				description: $(this).children('.image_second_description').text()
 			});
 		});
@@ -143,7 +143,7 @@ $(document).ready(function() {
 
 		images_maps.each(function(index, el) {
 			images_maps_upload.push({
-				path: $(this).attr('style').slice(21, -1),
+				path: $(this).attr('style').match(/\(([^)]+)\)/)[0].slice(1,-1).replace('http://' + window.location.host, ''),
 				description: $(this).children('.image_maps_description').text()
 			});
 		});
