@@ -378,9 +378,35 @@ var edit_projects = app.route('/auth/projects/edit/:project_id');
 
 edit_projects.get(checkAuth, function(req, res) {
   var id = req.params.project_id;
+  var public_path = __dirname + '/public';
+  var images = {
+    main: '',
+    second: [],
+    maps: []
+  }
 
   Project.findById(id).exec(function(err, project) {
-    res.render('auth/projects/edit.jade', {project: project});
+
+    var move = function(type, callback) {
+      async.forEach(project.images[type], function(image, loop_callback) {
+        var preview_path = '/preview/' + image.path.split('/')[5];
+
+        images[type].push(preview_path);
+        fs.createReadStream(public_path + image.path).pipe(fs.createWriteStream(public_path + preview_path));
+        loop_callback();
+
+      }, function() {
+        callback(null, type);
+      });
+    }
+
+    async.parallel([
+      async.apply(move, 'second'),
+      async.apply(move, 'maps')
+    ], function() {
+      res.render('auth/projects/edit.jade', {project: project, images: images});
+    });
+
   });
 });
 
