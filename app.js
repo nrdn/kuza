@@ -334,14 +334,17 @@ add_project.post(checkAuth, function(req, res) {
 
   fs.mkdir(public_path + '/images/projects/' + project._id);
 
-  var create = function(type) {
+  var create = function(type, callback) {
     fs.mkdir(public_path + path[type], function() {
-      async.forEach(post.images[type], function(image) {
+      async.forEach(post.images[type], function(image, loop_callback) {
         fs.rename(public_path + image.path, public_path + path[type] + image.path.split('/')[2]);
         project.images[type].push({
           path: path[type] + image.path.split('/')[2],
           description: image.description
         });
+        loop_callback();
+      }, function() {
+        callback(null, type);
       });
     });
   }
