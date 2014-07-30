@@ -29,7 +29,7 @@ block content
 		input#images_second_fallback(type='file')
 		a.back_link(href='/auth/projects') < Назад
 		.title РЕДАКТИРОВАТЬ ПРОЕКТ
-		.form_image_main(style='background-image:url(' + project.images.main + ')')
+		.form_image_main(style='background-image:url(' + images.main + ')')
 			.form_desc_title Главная
 		.form_title(contenteditable=true)= project.title.ru
 		.form_description(contenteditable=true)= project.description.ru

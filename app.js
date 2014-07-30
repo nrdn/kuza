@@ -387,7 +387,14 @@ edit_projects.get(checkAuth, function(req, res) {
 
   Project.findById(id).exec(function(err, project) {
 
-    var move = function(type, callback) {
+    var single_move = function(type, callback) {
+      var preview_path = '/preview/' + project.images[type].split('/')[5];
+      images.main = preview_path;
+      fs.createReadStream(public_path + project.images[type]).pipe(fs.createWriteStream(public_path + preview_path));
+      callback(null, type);
+    }
+
+    var multi_move = function(type, callback) {
       async.forEach(project.images[type], function(image, loop_callback) {
         var preview_path = '/preview/' + image.path.split('/')[5];
 
@@ -401,8 +408,9 @@ edit_projects.get(checkAuth, function(req, res) {
     }
 
     async.parallel([
-      async.apply(move, 'second'),
-      async.apply(move, 'maps')
+      async.apply(single_move, 'main'),
+      async.apply(multi_move, 'second'),
+      async.apply(multi_move, 'maps')
     ], function() {
       res.render('auth/projects/edit.jade', {project: project, images: images});
     });
