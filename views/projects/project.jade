@@ -18,7 +18,7 @@ block content
 		h1.project_title= project.title.ru
 		.project_category= project.subs_category
 		.project_description_block
-			.project_description= project.description.ru
+			.project_description!= project.description.ru
 			.project_columns_block колонки
 		.project_block_title Изображения
 		.project_images_second_block
@@ -28,7 +28,7 @@ block content
 						.image_second_block
 							img.image_second(src=image.path)
 							.image_second_description=image.description
-		.project_block_title Карты
+		.project_block_title Карты и чертежи
 		.project_images_maps_block
 			each column in images_maps_columns
 				.images_maps_column

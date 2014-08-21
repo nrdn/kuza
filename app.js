@@ -178,6 +178,14 @@ app.route('/members').get(function(req, res) {
   });
 });
 
+app.route('/members/:id').get(function(req, res) {
+  var id = req.params.id;
+
+  Member.findById(id).exec(function(err, member) {
+    res.render('members/member.jade', {member: member});
+  });
+});
+
 
 // ------------------------
 // *** Projects Block ***

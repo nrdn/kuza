@@ -52,7 +52,9 @@ h1 {
 	height: 400px;
 	float: left;
 	margin-right: 40px;
-	background-color: #b5b4c1;
+	font: 12pt/14pt 'helveticaneuecyrlight';
+	color: #172E5D;
+	/*background-color: #b5b4c1;*/
 }
 
 .project_columns_block {
@@ -125,6 +127,7 @@ h1 {
 
 .image_maps {
 	width: 240px;
+	height: 160px;
 }
 
 .image_maps_description {
