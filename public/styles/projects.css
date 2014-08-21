@@ -19,6 +19,8 @@
 	width: 240px;
 	min-height: 150px;
 	margin-bottom: 20px;
+	display: block;
+	text-decoration: none;
 	/*background-color: #d2b3b9;*/
 }
 
@@ -29,10 +31,9 @@
 .project_title {
 	color: #172E5D;
 	font: 12pt/14pt 'helveticaneuecyrlight';
-	text-decoration: none;
 }
 
-.project_title:hover {
+.project_item:hover .project_title {
 	text-decoration: underline;
 }
 

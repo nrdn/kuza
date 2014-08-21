@@ -15,7 +15,7 @@ block content
 		each column in columns
 			.project_column
 				each project in column
-					.project_item
+					a.project_item(href='/projects/' + project._id)
 						img.project_image(src=project.images.main)
-						a.project_title(href='/projects/' + project._id)= project.title.ru
+						.project_title= project.title.ru
 						.project_category= project.subs_category
