@@ -19,7 +19,7 @@ var memberSchema = new Schema({
 		en: String
 	},
 	projects: [String],
-	category: String,
+	categorys: [String],
 	photo: String,
 	date: {type: Date, default: Date.now}
 });

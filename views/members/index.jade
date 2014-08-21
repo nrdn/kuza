@@ -1,0 +1,23 @@
+extends ../layout
+
+block title
+	title ЛЮДИ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/members.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/members.js' + version)
+
+
+block content
+	.projects_columns_block
+		each column in columns
+			.project_column
+				each member in column
+					a.member_item(href='/members/' + member._id)
+						img.member_photo(src=member.photo)
+						.member_title= member.name.ru
+						.member_categorys
+							each category in member.categorys
+								.member_category= category

@@ -167,6 +167,19 @@ app.route('/company').get(function(req, res) {
 
 
 // ------------------------
+// *** Members Block ***
+// ------------------------
+
+
+app.route('/members').get(function(req, res) {
+  Member.find().sort('-date').exec(function(err, members) {
+    var columns = toMatrix(members, 5);
+    res.render('members', {columns: columns});
+  });
+});
+
+
+// ------------------------
 // *** Projects Block ***
 // ------------------------
 
@@ -252,7 +265,7 @@ add_members.post(checkAuth, function(req, res) {
 
   member.name.ru = post.ru.name;
   member.description.ru = post.ru.description;
-  member.category = post.category;
+  member.categorys = post.categorys;
 
   member.save(function(err, member) {
     res.redirect('/auth/members');
