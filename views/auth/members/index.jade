@@ -1,7 +1,7 @@
 extends ../../layout
 
 block title
-	title СПИСОК АВТОРОВ
+	title СПИСОК УЧАСТНИКОВ
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/styles/add.css')
@@ -11,16 +11,14 @@ block content_scripts
 
 block content
 	a.back_link(href='/auth') < Назад
-	.title СПИСОК АВТОРОВ
+	.title СПИСОК УЧАСТНИКОВ
 	br
-	a.add(href='/auth/authors/add') добавить автора
+	a.add(href='/auth/members/add') добавить участника
 	br
 	br
 	.main_menu_block
-		each author in authors
-			.author
-				a.rm_author(href='#', id=author._id)= 'удалить '
+		each member in members
+			.member
+				a.rm_author(href='#', id=member._id)= 'удалить '
 				!=' | '
-				a(href='/auth/publications/' + author._id) публикации
-				!=' | '
-				a(href='/auth/authors/edit/' + author._id)= author.name.ru
+				a(href='/auth/members/edit/' + member._id)= member.name.ru

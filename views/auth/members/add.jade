@@ -1,7 +1,7 @@
 extends ../../layout
 
 block title
-	title ДОБАВИТЬ АВТОРА
+	title ДОБАВИТЬ УЧАСТНИКА
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/styles/add.css')
@@ -9,27 +9,24 @@ block content_style
 block content_scripts
 	script(type='text/javascript', src='/scripts/add.js')
 
-block content_right
-	.navigator
-		.nav_title АВТОР
-		.nav_project_children
-		br
-		b.nav_settings_title настройки
-		.toggle_eng перевод
-		br
-		b.form_submit ОТПРАВИТЬ
-
 block content
 	.form_block
-		a.back_link(href='/auth/authors') < Назад
-		.title ДОБАВИТЬ АВТОРА
-		form(action="/auth/authors/add", method="post")
+		a.back_link(href='/auth/members') < Назад
+		.title ДОБАВИТЬ УЧАСТНИКА
+		form(action="/auth/members/add", method="post")
 			.form_title Имя:
 			input.ru(type="text", name="ru[name]",)
 			input.en(type="text", name="en[name]", disabled)
 			.form_title Описание:
 			textarea.ru(name="ru[description]", rows="8",)
 			textarea.en(name="en[description]", rows="8", disabled)
+			.form_title Категория:
+			.snake
+				input.back(type="button", value="<")
+				select(name='category')
+					option(value='architect') Архитектор
+					option(value='artist') Художник
+				input.forward(type="button", value=">")
 			.form_title Фото:
 			input(type="file", name="photo")
 			br

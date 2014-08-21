@@ -83,6 +83,7 @@ app.use(function(req, res, next) {
 var User = models.User;
 var Member = models.Member;
 var Project = models.Project;
+var Member = models.Member;
 
 
 // ------------------------
@@ -221,70 +222,71 @@ app.route('/auth').get(checkAuth, function (req, res) {
 
 
 // ------------------------
-// *** Admin Authors Block ***
+// *** Admin Mmembers Block ***
 // ------------------------
 
 
-app.route('/auth/authors').get(checkAuth, function(req, res) {
-  Author.find().exec(function(err, authors) {
-    res.render('auth/authors/', {authors: authors});
+app.route('/auth/members').get(checkAuth, function(req, res) {
+  Member.find().exec(function(err, members) {
+    res.render('auth/members/', {members: members});
   });
 });
 
 
 // ------------------------
-// *** Add Authors Block ***
+// *** Add Member Block ***
 // ------------------------
 
 
-var add_authors = app.route('/auth/authors/add');
+var add_members = app.route('/auth/members/add');
 
-add_authors.get(checkAuth, function(req, res) {
-  res.render('auth/authors/add.jade');
+add_members.get(checkAuth, function(req, res) {
+  res.render('auth/members/add.jade');
 });
 
-add_authors.post(checkAuth, function(req, res) {
+add_members.post(checkAuth, function(req, res) {
   var post = req.body;
   var files = req.files;
 
-  var author = new Author();
+  var member = new Member();
 
-  author.name.ru = post.ru.name;
-  author.description.ru = post.ru.description;
+  member.name.ru = post.ru.name;
+  member.description.ru = post.ru.description;
+  member.category = post.category;
 
-  author.save(function(err, author) {
-    res.redirect('/auth/authors');
+  member.save(function(err, member) {
+    res.redirect('/auth/members');
   });
 });
 
 
 // ------------------------
-// *** Edit Authors Block ***
+// *** Edit Members Block ***
 // ------------------------
 
 
-var edit_authors = app.route('/auth/authors/edit/:id');
+var edit_members = app.route('/auth/members/edit/:id');
 
 
-edit_authors.get(checkAuth, function(req, res) {
+edit_members.get(checkAuth, function(req, res) {
   var id = req.params.id;
 
-  Author.findById(id).exec(function(err, author) {
-    res.render('auth/authors/edit.jade', {author: author});
+  Member.findById(id).exec(function(err, member) {
+    res.render('auth/members/edit.jade', {member: member});
   });
 });
 
-edit_authors.post(checkAuth, function(req, res) {
+edit_members.post(checkAuth, function(req, res) {
   var post = req.body;
   var id = req.params.id;
 
-  Author.findById(id).exec(function(err, author) {
+  Member.findById(id).exec(function(err, member) {
 
-    author.name.ru = post.ru.name;
-    author.description.ru = post.ru.description;
+    member.name.ru = post.ru.name;
+    member.description.ru = post.ru.description;
 
-    author.save(function(err, work) {
-      res.redirect('/auth/authors');
+    member.save(function(err, member) {
+      res.redirect('/auth/members');
     });
   });
 });
