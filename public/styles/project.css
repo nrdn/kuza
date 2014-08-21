@@ -59,7 +59,6 @@ h1 {
 
 .project_columns_block {
 	width: 620px;
-	height: 400px;
 	float: left;
 	font: 12pt/14pt 'helveticaneuecyrlight';
 	/*background-color: #65c19d;*/
@@ -90,8 +89,9 @@ h1 {
 }
 
 .project_map {
-	width: 300px;
-	margin-top: 10px;
+	width: 620px;
+	height: 200px;
+	margin-bottom: 10px;
 }
 
 .author_category {

@@ -20,6 +20,7 @@ block content
 		.project_description_block
 			.project_description!= project.description.ru
 			.project_columns_block
+				img.project_map(src='/images/design/map.png')
 				.project_column.params
 					.param_block
 						.param_name Площадь застройки:
@@ -36,7 +37,6 @@ block content
 					.param_block
 						.param_name Конкурс:
 						.param_value Супер
-					img.project_map(src='/images/design/map.png')
 				.project_column.authors
 					.author_category Архитекторы:
 					.author_item Вася Кондрашов
