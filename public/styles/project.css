@@ -61,9 +61,47 @@ h1 {
 	width: 620px;
 	height: 400px;
 	float: left;
-	background-color: #65c19d;
+	font: 12pt/14pt 'helveticaneuecyrlight';
+	/*background-color: #65c19d;*/
 }
 
+.project_column {
+	width: 300px;
+	margin-right: 20px;
+	float: left;
+}
+
+.project_column:last-child {
+	margin-right: 0px;
+}
+
+.param_block {
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.param_name {
+	float: left;
+	font: 12pt/14pt 'helveticaneuecyrmedium';
+}
+
+.param_value {
+	float: right;
+}
+
+.project_map {
+	width: 300px;
+	margin-top: 10px;
+}
+
+.author_category {
+	font: 12pt/14pt 'helveticaneuecyrmedium';
+	margin-bottom: 5px;
+}
+
+.author_item {
+	margin-bottom: 5px;
+}
 
 /*
 	Images Second
@@ -140,8 +178,21 @@ h1 {
 
 .project_comments_block {
 	width: 1280px;
-	height: 400px;
-	background-color: #c1b863;
+	/*height: 400px;*/
+	/*background-color: #c1b863;*/
+}
+
+.comment_item_block {
+	margin-bottom: 20px;
+}
+
+.comment_body {
+	font: 14pt/16pt 'helveticaneuecyrlight_italic';
+}
+
+.comment_author {
+	font: 14pt/16pt 'helveticaneuecyrmedium_italic';
+	color: #172E5D;
 }
 
 .project_footer_block {

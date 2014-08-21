@@ -19,7 +19,36 @@ block content
 		.project_category= project.subs_category
 		.project_description_block
 			.project_description!= project.description.ru
-			.project_columns_block колонки
+			.project_columns_block
+				.project_column.params
+					.param_block
+						.param_name Площадь застройки:
+						.param_value 46ГА
+					.param_block
+						.param_name Год постройки:
+						.param_value 2007
+					.param_block
+						.param_name Заказчик:
+						.param_value МГТС
+					.param_block
+						.param_name Страна:
+						.param_value Россия
+					.param_block
+						.param_name Конкурс:
+						.param_value Супер
+					img.project_map(src='/images/design/map.png')
+				.project_column.authors
+					.author_category Архитекторы:
+					.author_item Вася Кондрашов
+					.author_item Вася Кондрашов
+					.author_item Вася Кондрашов
+					.author_item Вася Кондрашов
+					.author_category Художники:
+					.author_item Сережа Безруков
+					.author_item Сережа Безруков
+					.author_item Сережа Безруков
+					.author_item Сережа Безруков
+					.author_item Сережа Безруков
 		.project_block_title Изображения
 		.project_images_second_block
 			each column in images_second_columns
@@ -35,5 +64,15 @@ block content
 					.image_maps(style='background-image: url(' + image.path + ')')
 					.image_maps_description=image.description
 		.project_block_title Отзывы о проекте
-		.project_comments_block comments
+		.project_comments_block
+			.comment_item_block
+				.comment_body RocksDB – постоянное хранилище «ключ-значение» для быстрых накопителей. Основное ее предназначение — хранение данных на flash дисках.
+				.comment_author Вася Петров
+			.comment_item_block
+				.comment_body RocksDB – постоянное хранилище «ключ-значение» для быстрых накопителей. Основное ее предназначение — хранение данных на flash дисках.
+				.comment_author Вася Петров
+			.comment_item_block
+				.comment_body RocksDB – постоянное хранилище «ключ-значение» для быстрых накопителей. Основное ее предназначение — хранение данных на flash дисках.
+				.comment_author Вася Петров
+
 		.project_footer_block= 'Кузьмин как наваждение ' + date.getFullYear()
