@@ -110,28 +110,25 @@ h1 {
 	overflow: hidden;
 }
 
-.images_maps_column {
-	width: 240;
+.image_maps_block {
+	margin-bottom: 20px;
 	margin-right: 20px;
 	float: left;
 }
 
-.images_maps_column:last-child {
+.image_maps_block:nth-child(5n) {
 	margin-right: 0px;
-}
-
-.image_maps_block {
-	width: 240px;
-	margin-bottom: 20px;
 }
 
 .image_maps {
 	width: 240px;
 	height: 160px;
+	background-size: cover;
 }
 
 .image_maps_description {
 	width: 240px;
+	margin-top: 3px;
 	font: 10pt/12pt 'helveticaneuecyrlight';
 }
 

@@ -204,9 +204,8 @@ app.route('/projects/:id').get(function(req, res) {
 
   Project.findById(id).exec(function(err, project) {
     var second = toMatrix(project.images.second, 3);
-    var maps = toMatrix(project.images.maps, 5);
 
-    res.render('projects/project.jade', {project: project, images_second_columns: second, images_maps_columns: maps});
+    res.render('projects/project.jade', {project: project, images_second_columns: second});
   });
 });
 

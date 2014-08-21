@@ -30,12 +30,10 @@ block content
 							.image_second_description=image.description
 		.project_block_title Карты и чертежи
 		.project_images_maps_block
-			each column in images_maps_columns
-				.images_maps_column
-					each image in column
-						.image_maps_block
-							img.image_maps(src=image.path)
-							.image_maps_description=image.description
+			each image in project.images.maps
+				.image_maps_block
+					.image_maps(style='background-image: url(' + image.path + ')')
+					.image_maps_description=image.description
 		.project_block_title Отзывы о проекте
 		.project_comments_block comments
 		.project_footer_block= 'Кузьмин как наваждение ' + date.getFullYear()

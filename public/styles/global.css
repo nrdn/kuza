@@ -72,7 +72,7 @@ a.menu_item:hover {
 }
 
 .contacts_block {
-	margin-left: 196px;
+	margin-left: 50px;
 	display: inline-block;
 	/*outline: 1px solid red;*/
 }
@@ -89,6 +89,23 @@ a.menu_item:hover {
 	border-left: 1px solid #b5b4c1;
 }
 
+.search_block {
+	float: right;
+}
+
+.search_input {
+	outline: none;
+	border: none;
+	width: 222px;
+	border-bottom: 1px solid black;
+	font: 12pt/14pt 'helveticaneuecyrlight';
+}
+
+.search_logo {
+	width: 15px;
+}
+
 .footer_block {
 	margin-top: 20px;
+	border: none;
 }
