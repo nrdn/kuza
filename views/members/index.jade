@@ -11,9 +11,9 @@ block content_scripts
 
 
 block content
-	.projects_columns_block
+	.members_columns_block
 		each column in columns
-			.project_column
+			.member_column
 				each member in column
 					a.member_item(href='/members/' + member._id)
 						img.member_photo(src=member.photo)
