@@ -3,11 +3,11 @@ $(document).ready(function() {
 
 	$(document).scroll(function(event) {
 		var scroll = $(document).scrollTop();
-		var offset = 500 - scroll * 0.666666;
+		var offset = 500 - scroll * 0.9;
 
 		if (scroll > 600) return false;
 
 		$('.project_image_main').css('height', offset + 'px');
-		$('.project_content_block').css('margin-top', offset + 'px');
+		// $('.project_content_block').css('margin-top', offset + 'px');
 	});
 });

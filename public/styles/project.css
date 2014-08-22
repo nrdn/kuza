@@ -90,11 +90,16 @@ h1 {
 
 .project_map {
 	width: 620px;
-	height: 200px;
+	height: 260px;
 	margin-bottom: 10px;
 }
 
-.author_category {
+.author_category_column {
+	width: 150px;
+	float: left;
+}
+
+.author_category_title {
 	font: 12pt/14pt 'helveticaneuecyrmedium';
 	margin-bottom: 5px;
 }

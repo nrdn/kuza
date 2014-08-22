@@ -23,6 +23,7 @@
 .menu_block {
 	overflow: hidden;
 	float: left;
+	margin-top: 5px;
 	margin-left: 60px;
 }
 
